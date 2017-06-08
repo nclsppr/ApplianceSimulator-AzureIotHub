@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="jumbotron" *ngIf="!applianceId">
+    <h1>Enter your appliance Id</h1>
+    <form [formGroup]="appForm" (ngSubmit)="onSumbit(appForm.value)">
+      <div class="form-group">
+        <input type="text" class="form-control" id="inputApplianceId" formControlName="applianceId" placeholder="Appliance Id">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!appForm.valid">Submit</button>
+    </form>
+  </div>
+
+  <div class="jumbotron" *ngIf="applianceId">
+    <h1>{{applianceId}}</h1>
+    <button (click)="onReset()" type="button" class="btn btn-danger">Reset your appliance Id</button>
+  </div>
+</div>
